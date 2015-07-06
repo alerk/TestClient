@@ -40,11 +40,15 @@ int main() {
 				printf("Receiving %d bytes from server:", recv_size);
 				for(int i=0;i<5;i++)
 				{
-					printf("%2.2x",(char)recv_buf[i]);
+					printf("%2.2x",(unsigned char)recv_buf[i]);
 				}
 				if(recv_buf[4]==0x01)
 				{
 					printf("\t ====> Fired!");
+				}
+				else if(recv_buf[4]== 0x02)
+				{
+					printf("\t ====> Intruder!");
 				}
 				printf("\n");
 			}
