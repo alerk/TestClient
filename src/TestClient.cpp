@@ -42,11 +42,12 @@ int main() {
 				{
 					printf("%2.2x",(unsigned char)recv_buf[i]);
 				}
-				if(recv_buf[4]==0x01)
+				if((recv_buf[4]&0x0F))
 				{
-					printf("\t ====> Fired!");
+					printf("\t ====> Fired @ %d!", (recv_buf[4]&0x0F));
 				}
-				else if(recv_buf[4]== 0x02)
+
+				if((recv_buf[4]&0x20))
 				{
 					printf("\t ====> Intruder!");
 				}
